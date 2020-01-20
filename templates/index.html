@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>波士頓房價預測</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+ <div class="container">  
+  <h1 id ='title'>波士頓房價預測</h1>
+  <br>
+    <!--CRIM ZN  INDUS CHAS  NOX RM  AGE DIS RAD TAX PTRATIO B LSTAT-->
+    <form id = 'input' action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="CRIM" placeholder="CRIM" required="required" />
+      <input type="text" name="ZN" placeholder="ZN" required="required" />
+      <input type="text" name="INDUS" placeholder="INDUS" required="required" />
+      <input type="text" name="CHAS" placeholder="CHAS" required="required" />
+      <input type="text" name="NOX" placeholder="NOX" required="required" />
+      <input type="text" name="RM" placeholder="RM" required="required" />
+      <input type="text" name="AGE" placeholder="AGE" required="required" />
+      <input type="text" name="DIS" placeholder="DIS" required="required" />
+      <input type="text" name="RAD" placeholder="RAD" required="required" />
+      <input type="text" name="TAX" placeholder="TAX" required="required" />
+      <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required" />
+      <input type="text" name="B" placeholder="B" required="required" />
+      <input type="text" name="LSTAT" placeholder="LSTAT" required="required" />
+      <button type="submit" class="btn">Predict</button>
+    </form>
+  <br>
+    <div id = 'output'>
+      {% if output %}
+        {{ output }}
+      {% endif %}   
+    </div>
+</body>
+</html>
